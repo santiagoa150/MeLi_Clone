@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package SELLERS_GRPC_PACKAGE;
+
+service SellerServices {
+  rpc GetSellerBySellerId(GetSellerBySellerIdRequest) returns (stream Seller);
+}
+
+message GetSellerBySellerIdRequest {
+  string id = 1;
+}
+
+message Seller {
+  string id = 1;
+}

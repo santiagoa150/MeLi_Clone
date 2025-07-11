@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package PAYMENTS_GRPC_PACKAGE;
+
+service PaymentServices {
+  rpc GetPaymentMethodsByIds(GetPaymentMethodsByIdsRequest) returns (GetPaymentMethodsByIdsResponse);
+}
+
+message GetPaymentMethodsByIdsRequest {
+  repeated string ids = 1;
+}
+
+message GetPaymentMethodsByIdsResponse {
+  repeated PaymentMethod paymentMethods = 1;
+}
+
+message PaymentMethod {
+  string id = 1;
+}

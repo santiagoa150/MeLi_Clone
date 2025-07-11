@@ -1,29 +1,30 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { ProductsAppModule } from './products-app.module';
-import { NestExceptionFilter } from '@shared/infrastructure/filters/nestjs/nest.exception-filter';
 import { Transport } from '@nestjs/microservices';
-import { protobufPackage } from './products';
+import { NestExceptionFilter } from '@shared/infrastructure/filters/nestjs/nest.exception-filter';
+import { protobufPackage } from './reviews';
+import { ReviewsAppModule } from './reviews-app.module';
 import { join } from 'path';
 import * as process from 'node:process';
 
 /**
- * Bootstrap function to initialize the Products application.
+ * Bootstrap function to initialize the Reviews application.
  */
 async function bootstrap(): Promise<[number, Logger]> {
-    const port: number = Number(process.env.PRODUCTS_APP_PORT);
+    const port = Number(process.env.REVIEWS_APP_PORT);
 
     /**
      * Create a microservice using NestJS with gRPC transport.
      */
-    const app = await NestFactory.createMicroservice(ProductsAppModule, {
+    const app = await NestFactory.createMicroservice(ReviewsAppModule, {
         transport: Transport.GRPC,
         options: {
             package: protobufPackage,
-            protoPath: join(process.cwd(), ...'dist/apps/products/products.proto'.split('/')),
+            protoPath: join(process.cwd(), ...'dist/apps/reviews/reviews.proto'.split('/')),
             url: `0.0.0.0:${port}`,
         },
     });
+
     app.useGlobalFilters(new NestExceptionFilter());
     app.useGlobalPipes(new ValidationPipe({ transform: true }));
     await app.listen();

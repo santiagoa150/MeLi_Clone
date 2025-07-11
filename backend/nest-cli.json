@@ -44,6 +44,69 @@
         ]
       }
     },
+    "reviews": {
+      "type": "application",
+      "root": "apps/reviews",
+      "sourceRoot": "apps/reviews/src",
+      "entryFile": "main",
+      "compilerOptions": {
+        "tsConfigPath": "apps/reviews/tsconfig.app.json",
+        "assets": [
+          {
+            "watchAssets": true,
+            "include": "**/.env.*",
+            "outDir": "dist/apps/reviews"
+          },
+          {
+            "watchAssets": true,
+            "include": "**/*.proto",
+            "outDir": "dist/apps/reviews"
+          }
+        ]
+      }
+    },
+    "sellers": {
+      "type": "application",
+      "root": "apps/sellers",
+      "sourceRoot": "apps/sellers/src",
+      "entryFile": "main",
+      "compilerOptions": {
+        "tsConfigPath": "apps/sellers/tsconfig.app.json",
+        "assets": [
+          {
+            "watchAssets": true,
+            "include": "**/.env.*",
+            "outDir": "dist/apps/sellers"
+          },
+          {
+            "watchAssets": true,
+            "include": "**/*.proto",
+            "outDir": "dist/apps/sellers"
+          }
+        ]
+      }
+    },
+    "payments": {
+      "type": "application",
+      "root": "apps/payments",
+      "sourceRoot": "apps/payments/src",
+      "entryFile": "main",
+      "compilerOptions": {
+        "tsConfigPath": "apps/payments/tsconfig.app.json",
+        "assets": [
+          {
+            "watchAssets": true,
+            "include": "**/.env.*",
+            "outDir": "dist/apps/payments"
+          },
+          {
+            "watchAssets": true,
+            "include": "**/*.proto",
+            "outDir": "dist/apps/payments"
+          }
+        ]
+      }
+    },
     "shared": {
       "type": "library",
       "root": "libs/shared",

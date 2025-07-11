@@ -16,6 +16,7 @@ export interface GetProductByIdRequest {
 
 export interface Product {
   id: string;
+  sellerId: string;
 }
 
 export const PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME = "PRODUCTS_GRPC_PACKAGE";

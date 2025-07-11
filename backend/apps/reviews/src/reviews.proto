@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package REVIEWS_GRPC_PACKAGE;
+
+service ReviewServices {
+  rpc GetReviewsByProductId(GetReviewsByProductIdRequest) returns (stream Review);
+}
+
+message GetReviewsByProductIdRequest {
+  string productId = 1;
+}
+
+message Review {
+  string id = 1;
+  string productId = 2;
+}

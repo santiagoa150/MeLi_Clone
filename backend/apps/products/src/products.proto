@@ -12,4 +12,5 @@ message GetProductByIdRequest {
 
 message Product {
   string id = 1;
+  string sellerId = 2;
 }
