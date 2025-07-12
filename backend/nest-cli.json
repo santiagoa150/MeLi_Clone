@@ -35,11 +35,6 @@
             "watchAssets": true,
             "include": "**/.env.*",
             "outDir": "dist/apps/products"
-          },
-          {
-            "watchAssets": true,
-            "include": "**/*.proto",
-            "outDir": "dist/apps/products"
           }
         ]
       }
@@ -98,11 +93,6 @@
             "watchAssets": true,
             "include": "**/.env.*",
             "outDir": "dist/apps/payments"
-          },
-          {
-            "watchAssets": true,
-            "include": "**/*.proto",
-            "outDir": "dist/apps/payments"
           }
         ]
       }
@@ -113,7 +103,14 @@
       "entryFile": "index",
       "sourceRoot": "libs/shared/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/shared/tsconfig.lib.json"
+        "tsConfigPath": "libs/shared/tsconfig.lib.json",
+        "assets": [
+          {
+            "watchAssets": true,
+            "include": "**/*.proto",
+            "outDir": "dist/libs/shared"
+          }
+        ]
       }
     }
   }

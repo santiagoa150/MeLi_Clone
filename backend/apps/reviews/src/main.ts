@@ -2,7 +2,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { Transport } from '@nestjs/microservices';
 import { NestExceptionFilter } from '@shared/infrastructure/filters/nestjs/nest.exception-filter';
-import { protobufPackage } from './reviews';
+import { protobufPackage } from '@shared/infrastructure/interfaces/review/reviews';
 import { ReviewsAppModule } from './reviews-app.module';
 import { join } from 'path';
 import * as process from 'node:process';
@@ -20,7 +20,10 @@ async function bootstrap(): Promise<[number, Logger]> {
         transport: Transport.GRPC,
         options: {
             package: protobufPackage,
-            protoPath: join(process.cwd(), ...'dist/apps/reviews/reviews.proto'.split('/')),
+            protoPath: join(
+                process.cwd(),
+                ...'dist/libs/shared/infrastructure/interfaces/review/reviews.proto'.split('/'),
+            ),
             url: `0.0.0.0:${port}`,
         },
     });

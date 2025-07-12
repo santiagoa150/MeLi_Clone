@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { ProductsAppModule } from './products-app.module';
 import { NestExceptionFilter } from '@shared/infrastructure/filters/nestjs/nest.exception-filter';
 import { Transport } from '@nestjs/microservices';
-import { protobufPackage } from './products';
+import { protobufPackage } from '@shared/infrastructure/interfaces/product/products';
 import { join } from 'path';
 import * as process from 'node:process';
 
@@ -20,7 +20,10 @@ async function bootstrap(): Promise<[number, Logger]> {
         transport: Transport.GRPC,
         options: {
             package: protobufPackage,
-            protoPath: join(process.cwd(), ...'dist/apps/products/products.proto'.split('/')),
+            protoPath: join(
+                process.cwd(),
+                ...'dist/libs/shared/infrastructure/interfaces/product/products.proto'.split('/'),
+            ),
             url: `0.0.0.0:${port}`,
         },
     });
