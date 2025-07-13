@@ -1,4 +1,4 @@
-import { ReviewDto } from '@shared/domain/model/review.dto';
+import { ReviewNormalized } from '@shared/domain/model/review/review-normalized';
 
 /**
  * This interface defines the contract for a review client that retrieves reviews for products.
@@ -10,5 +10,5 @@ export interface ReviewClient {
      * @param productId - The ID of the product to retrieve reviews for.
      * @return A promise that resolves to an array of reviews for the specified product.
      */
-    getReviewsByProductId(productId: string): Promise<ReviewDto[]>;
+    getReviewsByProductId(productId: string): Promise<ReviewNormalized[]>;
 }

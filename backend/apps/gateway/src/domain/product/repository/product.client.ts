@@ -1,4 +1,4 @@
-import { ProductDto } from '@shared/domain/model/product.dto';
+import { ProductNormalized } from '@shared/domain/model/product/product-normalized';
 
 /**
  * This interface defines the contract for a product client that retrieves product details.
@@ -10,5 +10,5 @@ export interface ProductClient {
      * @param productId - The ID of the product to retrieve.
      * @return A promise that resolves to the product details.
      */
-    getProductById(productId: string): Promise<ProductDto>;
+    getProductById(productId: string): Promise<ProductNormalized>;
 }

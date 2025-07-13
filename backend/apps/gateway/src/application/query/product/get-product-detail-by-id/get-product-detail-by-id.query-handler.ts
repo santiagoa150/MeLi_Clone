@@ -9,7 +9,7 @@ import { GrpcPaymentClient } from '../../../../infrastructure/repository/product
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { GetProductDetailByIdQuery } from './get-product-detail-by-id.query';
 import { ProductDetail } from '../../../../domain/product/model/product-detail';
-import { ProductDto } from '@shared/domain/model/product.dto';
+import { ProductNormalized } from '@shared/domain/model/product/product-normalized';
 import { Inject, Logger } from '@nestjs/common';
 
 /**
@@ -39,7 +39,7 @@ export class GetProductDetailByIdQueryHandler implements IQueryHandler<GetProduc
      */
     async execute(query: GetProductDetailByIdQuery): Promise<ProductDetail> {
         this._logger.log(`[${this.execute.name}] INIT :: ${JSON.stringify(query)}`);
-        const product: ProductDto = await this._productClient.getProductById(query.productId);
+        const product: ProductNormalized = await this._productClient.getProductById(query.productId);
         const [reviewsResult, paymentMethodsResult, sellerResult] = await Promise.allSettled([
             this._reviewClient.getReviewsByProductId(query.productId),
             this._paymentClient.getPaymentMethodsByIds(product.paymentMethods),

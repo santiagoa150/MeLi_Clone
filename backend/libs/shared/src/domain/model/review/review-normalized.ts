@@ -1,10 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 /**
- * Review Data Transfer Object (DTO) for representing review information.
- * This DTO is used to transfer review data between different layers of the application.
+ * ReviewNormalized represents a normalized review entity.
  */
-export class ReviewDto {
+export class ReviewNormalized {
     @ApiProperty({ description: 'Unique identifier for the review' })
     id: string;
 

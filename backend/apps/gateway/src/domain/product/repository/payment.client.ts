@@ -1,4 +1,4 @@
-import { PaymentMethodDto } from '@shared/domain/model/payment-method.dto';
+import { PaymentMethodNormalized } from '@shared/domain/model/payment/payment-method-normalized';
 
 /**
  * This interface defines the contract for a payment client that retrieves payment methods.
@@ -10,5 +10,5 @@ export interface PaymentClient {
      * @param paymentMethodIds - The IDs of the payment methods to retrieve.
      * @return A promise that resolves to an array of payment methods.
      */
-    getPaymentMethodsByIds(paymentMethodIds: string[]): Promise<PaymentMethodDto[]>;
+    getPaymentMethodsByIds(paymentMethodIds: string[]): Promise<PaymentMethodNormalized[]>;
 }

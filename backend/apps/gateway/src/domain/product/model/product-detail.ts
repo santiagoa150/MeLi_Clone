@@ -1,22 +1,22 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ProductDto } from '@shared/domain/model/product.dto';
-import { SellerDto } from '@shared/domain/model/seller.dto';
-import { ReviewDto } from '@shared/domain/model/review.dto';
-import { PaymentMethodDto } from '@shared/domain/model/payment-method.dto';
+import { ProductNormalized } from '@shared/domain/model/product/product-normalized';
+import { SellerNormalized } from '@shared/domain/model/seller/seller-normalized';
+import { ReviewNormalized } from '@shared/domain/model/review/review-normalized';
+import { PaymentMethodNormalized } from '@shared/domain/model/payment/payment-method-normalized';
 
 /**
  * Represents the details of a product, including its seller, reviews, and payment methods.
  */
 export class ProductDetail {
-    @ApiProperty({ description: 'The product found', type: ProductDto })
-    product: ProductDto;
+    @ApiProperty({ description: 'The product found', type: ProductNormalized })
+    product: ProductNormalized;
 
-    @ApiProperty({ description: 'The seller of the product', type: SellerDto, nullable: true })
-    seller?: SellerDto;
+    @ApiProperty({ description: 'The seller of the product', type: SellerNormalized, required: false })
+    seller?: SellerNormalized;
 
-    @ApiProperty({ description: 'The reviews of the product', type: [ReviewDto] })
-    reviews: ReviewDto[];
+    @ApiProperty({ description: 'The reviews of the product', type: [ReviewNormalized] })
+    reviews: ReviewNormalized[];
 
-    @ApiProperty({ description: 'The payment methods available for the product', type: [PaymentMethodDto] })
-    paymentMethods: PaymentMethodDto[];
+    @ApiProperty({ description: 'The payment methods available for the product', type: [PaymentMethodNormalized] })
+    paymentMethods: PaymentMethodNormalized[];
 }

@@ -5,5 +5,5 @@ import { ApiProperty } from '@nestjs/swagger';
  */
 export class HttpSuccessfulResponse {
     @ApiProperty({ description: 'The response status indicating success' })
-    success = true;
+    success: boolean = true;
 }

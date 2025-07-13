@@ -1,4 +1,4 @@
-import { SellerDto } from '@shared/domain/model/seller.dto';
+import { SellerNormalized } from '@shared/domain/model/seller/seller-normalized';
 
 /**
  * This interface defines the contract for a seller client that retrieves seller details.
@@ -10,5 +10,5 @@ export interface SellerClient {
      * @param sellerId - The ID of the seller to retrieve.
      * @return A promise that resolves to the seller details.
      */
-    getSellerById(sellerId: string): Promise<SellerDto>;
+    getSellerById(sellerId: string): Promise<SellerNormalized>;
 }
