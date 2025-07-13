@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.5
 //   protoc               v6.31.1
-// source: libs/shared/src/infrastructure/interfaces/product/products.proto
+// source: libs/shared/src/infrastructure/interfaces/grpc/product/products.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
@@ -16,8 +16,27 @@ export interface GetProductByIdRequest {
 
 export interface Product {
   id: string;
+  title: string;
+  description: string;
+  price: number;
+  currency: string;
+  stock: number;
+  soldQuantity: number;
+  imagesIds: string[];
+  mainImageId: string;
+  categories: string[];
+  rating: number;
+  reviewsCount: number;
+  isBestSeller: boolean;
+  attributes: ProductAttributeNormalized[];
   sellerId: string;
   paymentMethods: string[];
+  discountPercentage?: number | undefined;
+}
+
+export interface ProductAttributeNormalized {
+  name: string;
+  value: string;
 }
 
 export const PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME = "PRODUCTS_GRPC_PACKAGE";

@@ -3,8 +3,8 @@ import { HttpProductControllerConstants } from './http-product.controller.consta
 import { ApiAcceptedResponse, ApiTags } from '@nestjs/swagger';
 import { QueryBus } from '@nestjs/cqrs';
 import { GetProductDetailByIdResponse } from './responses/get-product-detail-by-id.response';
-import { ProductDetail } from '../../../domain/product/model/product-detail';
-import { GetProductDetailByIdQuery } from '../../../application/query/product/get-product-detail-by-id/get-product-detail-by-id.query';
+import { ProductDetail } from '../../../../domain/product/model/product-detail';
+import { GetProductDetailByIdQuery } from '../../../../application/query/product/get-product-detail-by-id/get-product-detail-by-id.query';
 
 /**
  * This file contains the HTTP Product Controller.
@@ -24,9 +24,7 @@ export class HttpProductController {
      */
     @Get(HttpProductControllerConstants.API_PARAM_PRODUCT_ID)
     @ApiAcceptedResponse({ type: GetProductDetailByIdResponse })
-    async getProductDetailById(
-        @Param(HttpProductControllerConstants.API_PARAM_PRODUCT_ID) productId: string,
-    ): Promise<GetProductDetailByIdResponse> {
+    async getProductDetailById(@Param('id') productId: string): Promise<GetProductDetailByIdResponse> {
         const response = new GetProductDetailByIdResponse();
         response.data = await this._queryBus.execute<GetProductDetailByIdQuery, ProductDetail>(
             new GetProductDetailByIdQuery(productId),

@@ -1,5 +1,5 @@
-import { HttpSuccessfulResponse } from '@shared/infrastructure/controller/responses/http-successful.response';
-import { ProductDetail } from '../../../../domain/product/model/product-detail';
+import { HttpSuccessfulResponse } from '@shared/infrastructure/controller/http/responses/http-successful.response';
+import { ProductDetail } from '../../../../../domain/product/model/product-detail';
 import { ApiProperty } from '@nestjs/swagger';
 
 /**

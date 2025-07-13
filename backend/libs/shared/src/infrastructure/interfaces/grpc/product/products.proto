@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package PRODUCTS_GRPC_PACKAGE;
+
+service ProductServices {
+  rpc GetProductById(GetProductByIdRequest) returns (stream Product);
+}
+
+message GetProductByIdRequest {
+  string id = 1;
+}
+
+message Product {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  double price = 4;
+  string currency = 5;
+  uint32 stock = 6;
+  uint32 soldQuantity = 7;
+  repeated string imagesIds = 8;
+  string mainImageId = 9;
+  repeated string categories = 10;
+  double rating = 11;
+  uint32 reviewsCount = 12;
+  bool isBestSeller = 13;
+  repeated ProductAttributeNormalized attributes = 14;
+  string sellerId = 15;
+  repeated string paymentMethods = 16;
+  optional double discountPercentage = 17;
+}
+
+message ProductAttributeNormalized {
+  string name = 1;
+  string value = 2;
+}

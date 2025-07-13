@@ -8,6 +8,7 @@ export const EnvGatewaySchema = Joi.object({
     APP_GLOBAL_PREFIX: Joi.string(),
     SWAGGER_TITLE: Joi.string(),
     SWAGGER_PATH: Joi.string(),
+    GRPC_PRODUCTS_URL: Joi.string(),
 })
     .options({ presence: 'required' })
     .required();

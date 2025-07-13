@@ -3,7 +3,14 @@ import { SharedModule } from '@shared/shared.module';
 import { ConfigModule } from '@nestjs/config';
 import { resolve } from 'path';
 import { EnvProductsSchema } from './env.products.schema';
+import { ProductQueryHandlerProviders } from './application/query/query-handler.providers';
+import { RepositoryProviders } from './infrastructure/repository/repository.providers';
+import { GrpcProductController } from './infrastructure/controller/grpc/grpc-product.controller';
 
+/**
+ * This file contains the Products application module.
+ * It imports necessary modules, controllers, and providers for the Products application.
+ */
 @Module({
     imports: [
         SharedModule,
@@ -13,7 +20,7 @@ import { EnvProductsSchema } from './env.products.schema';
             envFilePath: resolve(__dirname, '.env.products'),
         }),
     ],
-    controllers: [],
-    providers: [],
+    controllers: [GrpcProductController],
+    providers: [...RepositoryProviders, ...ProductQueryHandlerProviders],
 })
 export class ProductsAppModule {}

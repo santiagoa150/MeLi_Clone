@@ -1,36 +1,39 @@
 import { Provider } from '@nestjs/common';
-import { GrpcProductClient } from './product/grpc/grpc-product.client';
-import { GrpcSellerClient } from './product/grpc/grpc-seller.client';
-import { GrpcReviewClient } from './product/grpc/grpc-review.client';
-import { GrpcPaymentClient } from './product/grpc/grpc-payment.client';
+import { GrpcProductClient } from './grpc/grpc-product.client';
+import { GrpcSellerClient } from './grpc/grpc-seller.client';
+import { GrpcReviewClient } from './grpc/grpc-review.client';
+import { GrpcPaymentClient } from './grpc/grpc-payment.client';
+import {
+    PRODUCT_SERVICES_SERVICE_NAME,
+    PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME,
+    ProductServicesClient,
+} from '@shared/infrastructure/interfaces/grpc/product/products';
+import { ClientGrpc } from '@nestjs/microservices';
 
 /**
  * This file contains the repository providers for the Gateway application.
  */
 export const GatewayRepositoryProviders: Provider[] = [
     {
-        inject: [],
+        inject: [PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME],
         provide: GrpcProductClient,
-        useFactory: (): GrpcProductClient => {
-            return new GrpcProductClient();
+        useFactory: (client: ClientGrpc): GrpcProductClient => {
+            return new GrpcProductClient(client.getService<ProductServicesClient>(PRODUCT_SERVICES_SERVICE_NAME));
         },
     },
     {
-        inject: [],
         provide: GrpcSellerClient,
         useFactory: (): GrpcSellerClient => {
             return new GrpcSellerClient();
         },
     },
     {
-        inject: [],
         provide: GrpcReviewClient,
         useFactory: (): GrpcReviewClient => {
             return new GrpcReviewClient();
         },
     },
     {
-        inject: [],
         provide: GrpcPaymentClient,
         useFactory: (): GrpcPaymentClient => {
             return new GrpcPaymentClient();

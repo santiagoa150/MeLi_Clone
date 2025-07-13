@@ -1,4 +1,4 @@
-import { SellerClient } from '../../../../domain/product/repository/seller.client';
+import { SellerClient } from '../../../domain/product/repository/seller.client';
 import { SellerNormalized } from '@shared/domain/model/seller/seller-normalized';
 
 export class GrpcSellerClient implements SellerClient {

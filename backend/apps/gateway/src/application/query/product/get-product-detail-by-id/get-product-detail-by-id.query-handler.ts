@@ -2,10 +2,10 @@ import { ProductClient } from '../../../../domain/product/repository/product.cli
 import { ReviewClient } from '../../../../domain/product/repository/review.client';
 import { PaymentClient } from '../../../../domain/product/repository/payment.client';
 import { SellerClient } from '../../../../domain/product/repository/seller.client';
-import { GrpcProductClient } from '../../../../infrastructure/repository/product/grpc/grpc-product.client';
-import { GrpcSellerClient } from '../../../../infrastructure/repository/product/grpc/grpc-seller.client';
-import { GrpcReviewClient } from '../../../../infrastructure/repository/product/grpc/grpc-review.client';
-import { GrpcPaymentClient } from '../../../../infrastructure/repository/product/grpc/grpc-payment.client';
+import { GrpcProductClient } from '../../../../infrastructure/repository/grpc/grpc-product.client';
+import { GrpcSellerClient } from '../../../../infrastructure/repository/grpc/grpc-seller.client';
+import { GrpcReviewClient } from '../../../../infrastructure/repository/grpc/grpc-review.client';
+import { GrpcPaymentClient } from '../../../../infrastructure/repository/grpc/grpc-payment.client';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { GetProductDetailByIdQuery } from './get-product-detail-by-id.query';
 import { ProductDetail } from '../../../../domain/product/model/product-detail';
@@ -38,7 +38,7 @@ export class GetProductDetailByIdQueryHandler implements IQueryHandler<GetProduc
      * @return A promise that resolves to the product details.
      */
     async execute(query: GetProductDetailByIdQuery): Promise<ProductDetail> {
-        this._logger.log(`[${this.execute.name}] INIT :: ${JSON.stringify(query)}`);
+        this._logger.log(`[${this.execute.name}] INIT :: ${query.productId}`);
         const product: ProductNormalized = await this._productClient.getProductById(query.productId);
         const [reviewsResult, paymentMethodsResult, sellerResult] = await Promise.allSettled([
             this._reviewClient.getReviewsByProductId(query.productId),
