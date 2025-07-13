@@ -3,8 +3,14 @@ import { SharedModule } from '@shared/shared.module';
 import { ConfigModule } from '@nestjs/config';
 import { EnvGatewaySchema } from './env.gateway.schema';
 import { HttpProductController } from './infrastructure/controller/product/http-product.controller';
+import { GatewayQueryHandlerProviders } from './application/query/query-handlers.providers';
+import { GatewayRepositoryProviders } from './infrastructure/repository/repository.providers';
 import { resolve } from 'path';
 
+/**
+ * This module is the entry point for the Gateway application.
+ * It configures the application, imports necessary modules, and registers controllers and providers.
+ */
 @Module({
     imports: [
         SharedModule,
@@ -15,6 +21,6 @@ import { resolve } from 'path';
         }),
     ],
     controllers: [HttpProductController],
-    providers: [],
+    providers: [...GatewayRepositoryProviders, ...GatewayQueryHandlerProviders],
 })
 export class GatewayAppModule {}

@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.5
 //   protoc               v6.31.1
-// source: apps/products/src/products.proto
+// source: libs/shared/src/infrastructure/interfaces/product/products.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
@@ -17,6 +17,7 @@ export interface GetProductByIdRequest {
 export interface Product {
   id: string;
   sellerId: string;
+  paymentMethods: string[];
 }
 
 export const PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME = "PRODUCTS_GRPC_PACKAGE";

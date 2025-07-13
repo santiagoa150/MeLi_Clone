@@ -10,4 +10,7 @@ export class ProductDto {
 
     @ApiProperty({ description: 'Unique identifier fot the product seller' })
     sellerId: string;
+
+    @ApiProperty({ description: 'Accepted payment methods for the product' })
+    paymentMethods: string[];
 }

@@ -13,4 +13,5 @@ message GetProductByIdRequest {
 message Product {
   string id = 1;
   string sellerId = 2;
+  repeated string paymentMethods = 3;
 }
