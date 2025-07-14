@@ -5,6 +5,7 @@ import Joi from 'joi';
  */
 export const EnvSchema: Joi.ObjectSchema = Joi.object({
     VITE_APP_PORT: Joi.number().port(),
+    VITE_API_URL: Joi.string(),
 })
     .options({ presence: 'required' })
     .required();

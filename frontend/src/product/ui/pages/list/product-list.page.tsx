@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 import { NavLink } from 'react-router-dom';
-import { RoutesConstants } from '../../../../../routes.tsx';
+import { RoutesConstants } from '../../../../routes.tsx';
 
 /**
  * ProductListPage component that serves as a placeholder for the product list page.
@@ -18,18 +18,15 @@ export function ProductListPage(): JSX.Element {
                         className="rounded-md cursor-pointer w-60 h-11 bg-app-button-primary text-white font-semibold hover:bg-app-button-primary-hover
                     transition delay-150 duration-200 ease-in-out"
                     >
-                        Caso 1
+                        Caso: Producto 1
                     </button>
                 </NavLink>
-                <NavLink
-                    to={RoutesConstants.PRODUCT_DETAIL.replace(':id', 'c07dce9d-cd5d-4c67-8368-480546fcdbee')}
-                    className="w-60 h-11"
-                >
+                <NavLink to={RoutesConstants.PRODUCT_DETAIL.replace(':id', 'adadadad')} className="w-60 h-11">
                     <button
                         className="rounded-md cursor-pointer w-60 h-11 bg-app-button-primary text-white font-semibold hover:bg-app-button-primary-hover
                     transition delay-150 duration-200 ease-in-out"
                     >
-                        Caso 2
+                        Caso: Producto no existente
                     </button>
                 </NavLink>
             </main>

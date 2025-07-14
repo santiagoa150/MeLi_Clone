@@ -13,6 +13,7 @@ async function bootstrap(): Promise<[number, string, Logger]> {
     const swaggerPath: string = process.env.SWAGGER_PATH!;
 
     const app = await NestFactory.create(GatewayAppModule);
+    app.enableCors();
     app.setGlobalPrefix(process.env.APP_GLOBAL_PREFIX!);
     app.useGlobalFilters(new NestExceptionFilter());
     app.useGlobalPipes(new ValidationPipe({ transform: true }));

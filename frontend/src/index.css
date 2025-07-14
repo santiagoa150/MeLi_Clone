@@ -4,6 +4,7 @@
     --color-app-primary: #ffe600;
     --color-app-button-primary: #3483fa;
     --color-app-button-primary-hover: #2968c8;
+    --color-app-text-secondary: #333;
 }
 
 body, #root {

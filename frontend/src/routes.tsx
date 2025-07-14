@@ -1,7 +1,8 @@
 import type { JSX, ReactNode } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ProductListPage } from './product/infrastructure/ui/pages/list/product-list.page.tsx';
-import { ProductDetailPage } from './product/infrastructure/ui/pages/detail/product-detail.page.tsx';
+import { ProductListPage } from './product/ui/pages/list/product-list.page.tsx';
+import { ProductDetailPage } from './product/ui/pages/detail/product-detail.page.tsx';
+import { NotFoundPage } from './shared/ui/pages/not-found/not-found.page.tsx';
 
 /**
  * Constants for the routes in the application.
@@ -21,6 +22,10 @@ export function Routes(params: { children: ReactNode }): JSX.Element {
             router={createBrowserRouter([
                 {
                     children: [
+                        {
+                            element: <NotFoundPage />,
+                            path: '*',
+                        },
                         {
                             element: <ProductDetailPage />,
                             path: RoutesConstants.PRODUCT_DETAIL,
