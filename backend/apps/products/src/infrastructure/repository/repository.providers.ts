@@ -4,7 +4,7 @@ import { InMemoryProductRepository } from './in-memory/in-memory-product.reposit
 /**
  * This file contains the repository providers for the Products application.
  */
-export const RepositoryProviders: Provider[] = [
+export const ProductRepositoryProviders: Provider[] = [
     {
         provide: InMemoryProductRepository,
         useFactory: (): InMemoryProductRepository => {

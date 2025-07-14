@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.5
 //   protoc               v6.31.1
-// source: apps/reviews/src/reviews.proto
+// source: libs/shared/src/infrastructure/interfaces/grpc/review/reviews.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
@@ -14,19 +14,27 @@ export interface GetReviewsByProductIdRequest {
   productId: string;
 }
 
+export interface GetReviewsByProductIdResponse {
+  reviews: Review[];
+}
+
 export interface Review {
   id: string;
   productId: string;
+  userId: string;
+  rating: number;
+  createdAt: string;
+  comment?: string | undefined;
 }
 
 export const REVIEWS_GRPC_PACKAGE_PACKAGE_NAME = "REVIEWS_GRPC_PACKAGE";
 
 export interface ReviewServicesClient {
-  getReviewsByProductId(request: GetReviewsByProductIdRequest): Observable<Review>;
+  getReviewsByProductId(request: GetReviewsByProductIdRequest): Observable<GetReviewsByProductIdResponse>;
 }
 
 export interface ReviewServicesController {
-  getReviewsByProductId(request: GetReviewsByProductIdRequest): Observable<Review>;
+  getReviewsByProductId(request: GetReviewsByProductIdRequest): Observable<GetReviewsByProductIdResponse>;
 }
 
 export function ReviewServicesControllerMethods() {

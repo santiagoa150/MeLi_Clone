@@ -4,7 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { resolve } from 'path';
 import { EnvProductsSchema } from './env.products.schema';
 import { ProductQueryHandlerProviders } from './application/query/query-handler.providers';
-import { RepositoryProviders } from './infrastructure/repository/repository.providers';
+import { ProductRepositoryProviders } from './infrastructure/repository/repository.providers';
 import { GrpcProductController } from './infrastructure/controller/grpc/grpc-product.controller';
 
 /**
@@ -21,6 +21,6 @@ import { GrpcProductController } from './infrastructure/controller/grpc/grpc-pro
         }),
     ],
     controllers: [GrpcProductController],
-    providers: [...RepositoryProviders, ...ProductQueryHandlerProviders],
+    providers: [...ProductRepositoryProviders, ...ProductQueryHandlerProviders],
 })
 export class ProductsAppModule {}

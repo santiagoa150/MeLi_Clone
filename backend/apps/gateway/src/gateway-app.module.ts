@@ -12,6 +12,10 @@ import {
     protobufPackage as productsProtobufPackage,
 } from '@shared/infrastructure/interfaces/grpc/product/products';
 import * as process from 'node:process';
+import {
+    protobufPackage as reviewsProtobufPackage,
+    REVIEWS_GRPC_PACKAGE_PACKAGE_NAME,
+} from '@shared/infrastructure/interfaces/grpc/review/reviews';
 
 /**
  * This module is the entry point for the Gateway application.
@@ -38,6 +42,19 @@ import * as process from 'node:process';
                         ...'dist/libs/shared/infrastructure/interfaces/grpc/product/products.proto'.split('/'),
                     ),
                     url: process.env.GRPC_PRODUCTS_URL,
+                },
+            },
+            {
+                transport: Transport.GRPC,
+                name: REVIEWS_GRPC_PACKAGE_PACKAGE_NAME,
+                options: {
+                    maxSendMessageLength: Math.pow(2, 32),
+                    package: reviewsProtobufPackage,
+                    protoPath: join(
+                        process.cwd(),
+                        ...'dist/libs/shared/infrastructure/interfaces/grpc/review/reviews.proto'.split('/'),
+                    ),
+                    url: process.env.GRPC_REVIEWS_URL,
                 },
             },
         ]),

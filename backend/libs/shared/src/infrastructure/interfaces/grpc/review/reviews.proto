@@ -3,14 +3,22 @@ syntax = "proto3";
 package REVIEWS_GRPC_PACKAGE;
 
 service ReviewServices {
-  rpc GetReviewsByProductId(GetReviewsByProductIdRequest) returns (stream Review);
+  rpc GetReviewsByProductId(GetReviewsByProductIdRequest) returns (stream GetReviewsByProductIdResponse);
 }
 
 message GetReviewsByProductIdRequest {
   string productId = 1;
 }
 
+message GetReviewsByProductIdResponse {
+  repeated Review reviews = 1;
+}
+
 message Review {
   string id = 1;
   string productId = 2;
+  string userId = 3;
+  double rating = 4;
+  string createdAt = 5;
+  optional string comment = 6;
 }

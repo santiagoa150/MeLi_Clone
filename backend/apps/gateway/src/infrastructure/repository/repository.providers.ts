@@ -9,6 +9,11 @@ import {
     ProductServicesClient,
 } from '@shared/infrastructure/interfaces/grpc/product/products';
 import { ClientGrpc } from '@nestjs/microservices';
+import {
+    REVIEW_SERVICES_SERVICE_NAME,
+    REVIEWS_GRPC_PACKAGE_PACKAGE_NAME,
+    ReviewServicesClient,
+} from '@shared/infrastructure/interfaces/grpc/review/reviews';
 
 /**
  * This file contains the repository providers for the Gateway application.
@@ -28,9 +33,10 @@ export const GatewayRepositoryProviders: Provider[] = [
         },
     },
     {
+        inject: [REVIEWS_GRPC_PACKAGE_PACKAGE_NAME],
         provide: GrpcReviewClient,
-        useFactory: (): GrpcReviewClient => {
-            return new GrpcReviewClient();
+        useFactory: (client: ClientGrpc): GrpcReviewClient => {
+            return new GrpcReviewClient(client.getService<ReviewServicesClient>(REVIEW_SERVICES_SERVICE_NAME));
         },
     },
     {
