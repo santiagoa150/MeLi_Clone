@@ -10,23 +10,20 @@ export class InMemoryProductRepository implements ProductRepository {
     private readonly _products: ProductNormalized[] = [
         {
             id: 'c07dce9d-cd5d-4c67-8368-480546fcdbee',
-            title: 'Cesto Para Ropa Sucia Color Gris',
+            title: 'Samsung Galaxy A55 5G Dual SIM 256 GB azul oscuro 8 GB RAM',
             description:
-                'CESTO PARA ROPA SUCIA KE-0015\n' +
+                'SAMSUNG GALAXY A55 5G 256GB ( SIM FISICA + ESIM )\n' +
                 '\n' +
-                'Este cesto para ropa sucia es práctico y te permite tener separada y organizada la ropa a lavar. Está hecho 100% de poliéster resistente y lavable que brinda resistencia para almacenar hasta 15 kg de ropa. Ocupa muy poco espacio, es súper discreto, moderno y compacto. Puedes colocarlo en el baño, la habitación o cuarto de lavado.\n' +
+                'Capacidad y eficiencia\n' +
+                'Con su potente procesador y memoria RAM de 8 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.\n' +
                 '\n' +
-                'Colores disponibles: Gris oscuro, negro, rojo, gris claro y menta.\n' +
+                'Capacidad de almacenamiento ilimitada\n' +
+                'Olvidate de borrar. Con su memoria interna de 256 GB podrás descargar todos los archivos y aplicaciones que necesites, guardar fotos y almacenar tus películas, series y videos favoritos para reproducirlos cuando quieras.\n' +
                 '\n' +
-                'Cuenta con 2 asas súper resistentes para poderlo transportar.\n' +
-                '\n' +
-                'Material: Poliéster.\n' +
-                '\n' +
-                '- Lavable.\n' +
-                '- Impermeable.',
-            price: 52470,
+                'Garantía de fábrica: 12 meses',
+            price: 1549894,
             currency: 'COP',
-            stock: 1,
+            stock: 50,
             soldQuantity: 100,
             imagesIds: [
                 '1bd0214f-538c-4939-93e2-e835599e1431',
@@ -34,22 +31,34 @@ export class InMemoryProductRepository implements ProductRepository {
                 '34584b2c-506f-4949-a9e8-7e2d0ee2faf2',
             ],
             mainImageId: '1bd0214f-538c-4939-93e2-e835599e1431',
-            categories: ['Hogar y Muebles', 'Baños', 'Accesorios para Baños', 'Cestos para Ropa', 'Cesta Ropa Sucia'],
+            categories: ['Celulares y Teléfonos', 'Celulares y Smartphones'],
             rating: 4.7,
             reviewsCount: 61,
             isBestSeller: true,
             attributes: [
-                { name: 'Nombre del diseño', value: 'Lisa' },
-                { name: 'Formato de venta', value: 'Unidad' },
-                { name: 'Medidas', value: '64cm x 36cm x 36cm' },
-                { name: 'Material', value: 'Poliéster' },
-                { name: 'Es plegable', value: 'Si' },
-                { name: 'Incluye tapa', value: 'No' },
-                { name: 'Con ruedas', value: 'No' },
-                { name: 'Incluye agarre', value: 'Si' },
+                { name: 'Marca', value: 'Samsung' },
+                { name: 'Línea', value: 'Galaxy A' },
+                { name: 'Modelo', value: 'A55' },
+                { name: 'Color', value: 'Amarillo' },
+                { name: 'Nombre del sistema operativo', value: 'Android' },
+                { name: 'Red móvil', value: '5G' },
+                { name: 'Es Dual SIM', value: 'No' },
+                { name: 'Cantidad de ranuras para tarjeta SIM', value: '1' },
+                { name: 'Cantidad de eSIMs', value: '1' },
+                { name: 'Memoria interna', value: '256 GB' },
+                { name: 'Memoria RAM', value: '8 GB' },
             ],
             sellerId: '80c98c32-b3ab-4803-86e0-3a74cac682e7',
-            paymentMethods: ['b040cd3e-729d-4510-94e7-e29f3d6e40f7', 'f42e08f6-4b1b-4bd4-83d4-e9e2f188db02'],
+            paymentMethods: [
+                'b040cd3e-729d-4510-94e7-e29f3d6e40f7',
+                'f42e08f6-4b1b-4bd4-83d4-e9e2f188db02',
+                '3af1e832-5528-4329-8da6-3e07d5520e86',
+                '1c344051-97e1-4459-a672-49a46e1e97b2',
+                'a688a88c-6e78-48a5-97da-8edf1b170da2',
+                '19475cb5-b122-40cb-a78b-0a3a1a258c77',
+                '3fbf4f5f-8369-4bfa-bc82-16ebcfa20f82',
+                '7894a479-c381-4e3d-9b7f-895378ff8ea6',
+            ],
             discountPercentage: 10,
         },
     ];

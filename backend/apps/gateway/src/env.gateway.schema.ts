@@ -11,6 +11,7 @@ export const EnvGatewaySchema = Joi.object({
     GRPC_PRODUCTS_URL: Joi.string(),
     GRPC_REVIEWS_URL: Joi.string(),
     GRPC_SELLERS_URL: Joi.string(),
+    GRPC_PAYMENTS_URL: Joi.string(),
 })
     .options({ presence: 'required' })
     .required();

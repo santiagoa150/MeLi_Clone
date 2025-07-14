@@ -19,6 +19,10 @@ import {
     protobufPackage as sellersProtobufPackage,
     SELLERS_GRPC_PACKAGE_PACKAGE_NAME,
 } from '@shared/infrastructure/interfaces/grpc/seller/sellers';
+import {
+    PAYMENTS_GRPC_PACKAGE_PACKAGE_NAME,
+    protobufPackage as paymentsProtobufPackage,
+} from '@shared/infrastructure/interfaces/grpc/payment/payments';
 import * as process from 'node:process';
 
 /**
@@ -72,6 +76,19 @@ import * as process from 'node:process';
                         ...'dist/libs/shared/infrastructure/interfaces/grpc/seller/sellers.proto'.split('/'),
                     ),
                     url: process.env.GRPC_SELLERS_URL,
+                },
+            },
+            {
+                transport: Transport.GRPC,
+                name: PAYMENTS_GRPC_PACKAGE_PACKAGE_NAME,
+                options: {
+                    maxSendMessageLength: Math.pow(2, 32),
+                    package: paymentsProtobufPackage,
+                    protoPath: join(
+                        process.cwd(),
+                        ...'dist/libs/shared/infrastructure/interfaces/grpc/payment/payments.proto'.split('/'),
+                    ),
+                    url: process.env.GRPC_PAYMENTS_URL,
                 },
             },
         ]),

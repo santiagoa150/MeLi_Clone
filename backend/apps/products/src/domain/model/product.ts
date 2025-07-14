@@ -10,15 +10,6 @@ import { ProductAttribute } from './product-attribute';
 import { ProductAttributeNormalized } from '@shared/domain/model/product/product-attribute-normalized';
 
 /**
- * TODO: Implement latter:
- *   "installments": {
- *     "quantity": 12,
- *     "amount": 4372,
- *     "interestRate": 0
- *   },
- */
-
-/**
  * Product represents a product in the domain model.
  */
 export class Product extends DomainRoot<ProductNormalized> {

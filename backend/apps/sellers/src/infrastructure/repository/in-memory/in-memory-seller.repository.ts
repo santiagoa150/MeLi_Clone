@@ -11,7 +11,7 @@ export class InMemorySellerRepository implements SellerRepository {
     private readonly _sellers: SellerNormalized[] = [
         {
             id: '80c98c32-b3ab-4803-86e0-3a74cac682e7',
-            name: 'ECOMMERCEIN NOVA SHOP',
+            name: 'Samsung',
             salesPerformanceRating: 4,
             customerServiceRating: 5,
             onTimeDeliveryRating: 5,

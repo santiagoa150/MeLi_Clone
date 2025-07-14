@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.5
 //   protoc               v6.31.1
-// source: apps/payments/src/payments.proto
+// source: libs/shared/src/infrastructure/interfaces/grpc/payment/payments.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
@@ -20,6 +20,8 @@ export interface GetPaymentMethodsByIdsResponse {
 
 export interface PaymentMethod {
   id: string;
+  type: string;
+  brand: string;
 }
 
 export const PAYMENTS_GRPC_PACKAGE_PACKAGE_NAME = "PAYMENTS_GRPC_PACKAGE";
@@ -29,12 +31,7 @@ export interface PaymentServicesClient {
 }
 
 export interface PaymentServicesController {
-  getPaymentMethodsByIds(
-    request: GetPaymentMethodsByIdsRequest,
-  ):
-    | Promise<GetPaymentMethodsByIdsResponse>
-    | Observable<GetPaymentMethodsByIdsResponse>
-    | GetPaymentMethodsByIdsResponse;
+  getPaymentMethodsByIds(request: GetPaymentMethodsByIdsRequest): Observable<GetPaymentMethodsByIdsResponse>;
 }
 
 export function PaymentServicesControllerMethods() {

@@ -3,7 +3,7 @@ syntax = "proto3";
 package PAYMENTS_GRPC_PACKAGE;
 
 service PaymentServices {
-  rpc GetPaymentMethodsByIds(GetPaymentMethodsByIdsRequest) returns (GetPaymentMethodsByIdsResponse);
+  rpc GetPaymentMethodsByIds(GetPaymentMethodsByIdsRequest) returns (stream GetPaymentMethodsByIdsResponse);
 }
 
 message GetPaymentMethodsByIdsRequest {
@@ -16,4 +16,6 @@ message GetPaymentMethodsByIdsResponse {
 
 message PaymentMethod {
   string id = 1;
+  string type = 2;
+  string brand = 3;
 }

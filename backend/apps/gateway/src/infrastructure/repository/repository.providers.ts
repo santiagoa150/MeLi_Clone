@@ -19,6 +19,11 @@ import {
     SELLERS_GRPC_PACKAGE_PACKAGE_NAME,
     SellerServicesClient,
 } from '@shared/infrastructure/interfaces/grpc/seller/sellers';
+import {
+    PAYMENT_SERVICES_SERVICE_NAME,
+    PAYMENTS_GRPC_PACKAGE_PACKAGE_NAME,
+    PaymentServicesClient,
+} from '@shared/infrastructure/interfaces/grpc/payment/payments';
 
 /**
  * This file contains the repository providers for the Gateway application.
@@ -46,9 +51,10 @@ export const GatewayRepositoryProviders: Provider[] = [
         },
     },
     {
+        inject: [PAYMENTS_GRPC_PACKAGE_PACKAGE_NAME],
         provide: GrpcPaymentClient,
-        useFactory: (): GrpcPaymentClient => {
-            return new GrpcPaymentClient();
+        useFactory: (client: ClientGrpc): GrpcPaymentClient => {
+            return new GrpcPaymentClient(client.getService<PaymentServicesClient>(PAYMENT_SERVICES_SERVICE_NAME));
         },
     },
 ];
