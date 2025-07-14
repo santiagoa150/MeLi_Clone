@@ -10,6 +10,7 @@ export const EnvGatewaySchema = Joi.object({
     SWAGGER_PATH: Joi.string(),
     GRPC_PRODUCTS_URL: Joi.string(),
     GRPC_REVIEWS_URL: Joi.string(),
+    GRPC_SELLERS_URL: Joi.string(),
 })
     .options({ presence: 'required' })
     .required();

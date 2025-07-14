@@ -11,11 +11,15 @@ import {
     PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME,
     protobufPackage as productsProtobufPackage,
 } from '@shared/infrastructure/interfaces/grpc/product/products';
-import * as process from 'node:process';
 import {
     protobufPackage as reviewsProtobufPackage,
     REVIEWS_GRPC_PACKAGE_PACKAGE_NAME,
 } from '@shared/infrastructure/interfaces/grpc/review/reviews';
+import {
+    protobufPackage as sellersProtobufPackage,
+    SELLERS_GRPC_PACKAGE_PACKAGE_NAME,
+} from '@shared/infrastructure/interfaces/grpc/seller/sellers';
+import * as process from 'node:process';
 
 /**
  * This module is the entry point for the Gateway application.
@@ -55,6 +59,19 @@ import {
                         ...'dist/libs/shared/infrastructure/interfaces/grpc/review/reviews.proto'.split('/'),
                     ),
                     url: process.env.GRPC_REVIEWS_URL,
+                },
+            },
+            {
+                transport: Transport.GRPC,
+                name: SELLERS_GRPC_PACKAGE_PACKAGE_NAME,
+                options: {
+                    maxSendMessageLength: Math.pow(2, 32),
+                    package: sellersProtobufPackage,
+                    protoPath: join(
+                        process.cwd(),
+                        ...'dist/libs/shared/infrastructure/interfaces/grpc/seller/sellers.proto'.split('/'),
+                    ),
+                    url: process.env.GRPC_SELLERS_URL,
                 },
             },
         ]),

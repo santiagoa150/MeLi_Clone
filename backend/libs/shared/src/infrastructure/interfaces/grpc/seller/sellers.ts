@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.5
 //   protoc               v6.31.1
-// source: apps/sellers/src/sellers.proto
+// source: libs/shared/src/infrastructure/interfaces/grpc/seller/sellers.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
@@ -16,6 +16,15 @@ export interface GetSellerBySellerIdRequest {
 
 export interface Seller {
   id: string;
+  name: string;
+  totalProducts: number;
+  totalSales: number;
+  customerServiceRating: number;
+  onTimeDeliveryRating: number;
+  salesPerformanceRating: number;
+  imageId: string;
+  isOfficial: boolean;
+  badges: string[];
 }
 
 export const SELLERS_GRPC_PACKAGE_PACKAGE_NAME = "SELLERS_GRPC_PACKAGE";

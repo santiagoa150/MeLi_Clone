@@ -12,4 +12,13 @@ message GetSellerBySellerIdRequest {
 
 message Seller {
   string id = 1;
+  string name = 2;
+  uint32 totalProducts = 3;
+  uint32 totalSales = 4;
+  double customerServiceRating = 5;
+  double onTimeDeliveryRating = 6;
+  double salesPerformanceRating = 7;
+  string imageId = 8;
+  bool isOfficial = 9;
+  repeated string badges = 10;
 }

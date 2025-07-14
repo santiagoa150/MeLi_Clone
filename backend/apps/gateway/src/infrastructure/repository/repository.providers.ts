@@ -14,6 +14,11 @@ import {
     REVIEWS_GRPC_PACKAGE_PACKAGE_NAME,
     ReviewServicesClient,
 } from '@shared/infrastructure/interfaces/grpc/review/reviews';
+import {
+    SELLER_SERVICES_SERVICE_NAME,
+    SELLERS_GRPC_PACKAGE_PACKAGE_NAME,
+    SellerServicesClient,
+} from '@shared/infrastructure/interfaces/grpc/seller/sellers';
 
 /**
  * This file contains the repository providers for the Gateway application.
@@ -27,9 +32,10 @@ export const GatewayRepositoryProviders: Provider[] = [
         },
     },
     {
+        inject: [SELLERS_GRPC_PACKAGE_PACKAGE_NAME],
         provide: GrpcSellerClient,
-        useFactory: (): GrpcSellerClient => {
-            return new GrpcSellerClient();
+        useFactory: (client: ClientGrpc): GrpcSellerClient => {
+            return new GrpcSellerClient(client.getService<SellerServicesClient>(SELLER_SERVICES_SERVICE_NAME));
         },
     },
     {
