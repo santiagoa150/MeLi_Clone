@@ -5,7 +5,7 @@
   "author": "santiagoa150@gmail.com",
   "type": "module",
   "scripts": {
-    "dev": "vite --mode local",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\"  --fix",
