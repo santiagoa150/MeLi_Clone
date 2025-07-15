@@ -50,6 +50,11 @@ export class InMemoryPaymentMethodRepository implements PaymentMethodRepository 
             type: PaymentMethodTypeConstants.CASH,
             brand: PaymentMethodBrandConstants.REDPAGOS,
         },
+        {
+            id: '605523fc-074d-41d4-9d64-755530c25841',
+            type: PaymentMethodTypeConstants.CASH,
+            brand: PaymentMethodBrandConstants.EFECTY,
+        },
     ];
 
     /**

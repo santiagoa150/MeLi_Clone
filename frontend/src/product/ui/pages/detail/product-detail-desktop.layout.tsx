@@ -44,6 +44,7 @@ export function ProductDetailDesktopLayout({ detail }: { detail: ProductDetail }
                                         src={`${import.meta.env.VITE_API_URL}/static/products/${image}`}
                                         alt={String(index + 1)}
                                         className="h-[350px] w-auto object-cover"
+                                        draggable={false}
                                     />
                                 ))}
                             </SliderComponent>

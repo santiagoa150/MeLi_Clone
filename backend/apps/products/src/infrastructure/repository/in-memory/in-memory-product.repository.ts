@@ -63,6 +63,83 @@ export class InMemoryProductRepository implements ProductRepository {
             ],
             discountPercentage: 10,
         },
+        {
+            id: '662aed8f-5493-41c5-bcc5-9862d99776e0',
+            title: 'Cesto Canasta De Ropa Sucia Organizador Lavanderia Plegable',
+            color: 'Negro',
+            description:
+                '<p>\n' +
+                '  Material ligero y resistente de alta calidad aplicado a la canasta de lavandería. Mantiene la ropa seca y facilita la limpieza.\n' +
+                '  <br />\n' +
+                '  <em>Límpielo con una esponja o un paño húmedo.</em>\n' +
+                '</p>\n' +
+                '<p>\n' +
+                '  Las manijas están reforzadas con costuras ajustadas y duraderas para evitar desgarros. La longitud de las asas permite transportarlo fácilmente con una o dos manos.\n' +
+                '<br />\n' +
+                '</p>\n' +
+                '<p>\n' +
+                '  Este organizador de almacenamiento puede guardar ropa, almohadas, etc. Adecuado para <em>residencias universitarias</em> y la <em>vida familiar</em>.\n' +
+                '</p>\n' +
+                '<p>\n' +
+                '  Se pliega fácilmente para almacenar en un cajón cuando no se usa. Apto para viajes de negocios o de placer, puede llevarse en el equipaje.\n' +
+                '</p>\n' +
+                '<p>\n' +
+                '  Diseño plegable que ahorra espacio cuando no está en uso. Ideal para dormitorios universitarios, campistas, apartamentos y lavaderos.\n' +
+                '</p>\n' +
+                '<p>\n' +
+                '  Dimensiones (Largo x Ancho x Altura): 33 cm x 30 cm x 52 cm<br>\n' +
+                '</p>',
+            price: 20,
+            currency: 'USD',
+            stock: 25,
+            soldQuantity: 5,
+            imagesIds: [
+                '074b0935-4e42-44e0-9316-96ce1cea1e3e.webp',
+                'bddf8d05-93da-42ae-944b-343c4505b556.webp',
+                '2cc365f0-5b71-465b-94e5-a51d7d356cc4.webp',
+                '34a0045a-4bec-4c08-908f-3fa909f9c68a.webp',
+                'eeb344da-f91c-4265-9b68-e004e20ed55c.webp',
+            ],
+            mainImageId: '074b0935-4e42-44e0-9316-96ce1cea1e3e.webp',
+            categories: ['Hogar y Muebles', 'Baños', 'Accesorios para Baños', 'Cestos para Ropa', 'Organizador Ropa'],
+            rating: 3.8,
+            reviewsCount: 4,
+            isBestSeller: true,
+            freeReturnDays: 30,
+            factoryWarrantyMonths: 2,
+            attributes: [
+                { name: 'Marca', value: 'Kwalux', category: 'Características principales' },
+                { name: 'Modelo', value: 'Negro', category: 'Características principales' },
+                {
+                    name: 'Formato de venta',
+                    value: 'Unidad',
+                    category: 'Características principales',
+                    highlighted: true,
+                },
+                { name: 'Forma', value: 'Plegable', category: 'Otros' },
+                { name: 'Material', value: 'Tela', category: 'Otros' },
+                { name: 'Es plegable', value: 'Sí', category: 'Otros' },
+                {
+                    name: 'Largo x Ancho x Altura',
+                    value: '33 cm x 30 cm x 52 cm',
+                    category: 'Otros',
+                    highlighted: true,
+                },
+                { name: 'Incluye tapa', value: 'No', category: 'Otros' },
+                { name: 'Con ruedas', value: 'No', category: 'Otros' },
+                { name: 'Incluye agarre', value: 'Sí', category: 'Otros' },
+            ],
+            sellerId: 'ff4d4481-4e1e-4158-902f-8cdffd81347b',
+            paymentMethods: [
+                'b040cd3e-729d-4510-94e7-e29f3d6e40f7',
+                'f42e08f6-4b1b-4bd4-83d4-e9e2f188db02',
+                '3af1e832-5528-4329-8da6-3e07d5520e86',
+                'a688a88c-6e78-48a5-97da-8edf1b170da2',
+                '19475cb5-b122-40cb-a78b-0a3a1a258c77',
+                '605523fc-074d-41d4-9d64-755530c25841',
+            ],
+            discountPercentage: 10,
+        },
     ];
 
     /**

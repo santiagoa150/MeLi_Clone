@@ -15,7 +15,7 @@ export function ProductAttributesDesktopComponent({
         <div className="grid grid-cols-2 w-full">
             <div className="flex flex-col gap-6 items-center">
                 {attributes.map((section, index) => {
-                    if (index > m) return null;
+                    if (index + 1 > m) return null;
                     return (
                         <div key={index} className="w-[345px]">
                             <h3 className="text-sm font-semibold mb-2">{section.category}</h3>
@@ -36,7 +36,7 @@ export function ProductAttributesDesktopComponent({
             </div>
             <div className="flex flex-col gap-6 items-center">
                 {attributes.map((section, index) => {
-                    if (index <= m) return null;
+                    if (index + 1 <= m) return null;
                     return (
                         <div key={index} className="w-[350px]">
                             <h3 className="text-sm font-semibold mb-2">{section.category}</h3>

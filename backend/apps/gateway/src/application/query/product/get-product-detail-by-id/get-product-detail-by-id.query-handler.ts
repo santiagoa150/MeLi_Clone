@@ -48,8 +48,11 @@ export class GetProductDetailByIdQueryHandler implements IQueryHandler<GetProduc
 
         const productDetail: ProductDetail = {
             product,
-            reviews: reviewsResult.status === 'fulfilled' ? reviewsResult.value : [],
-            paymentMethods: paymentMethodsResult.status === 'fulfilled' ? paymentMethodsResult.value : [],
+            reviews: reviewsResult.status === 'fulfilled' && reviewsResult.value ? reviewsResult.value : [],
+            paymentMethods:
+                paymentMethodsResult.status === 'fulfilled' && paymentMethodsResult.value
+                    ? paymentMethodsResult.value
+                    : [],
             seller: sellerResult.status === 'fulfilled' ? sellerResult.value : undefined,
         };
         this._logger.log(`[${this.execute.name}] FINISH ::`);

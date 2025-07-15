@@ -2,15 +2,21 @@ import type { JSX } from 'react';
 import type { ProductDetail } from '../../../model/product-detail.ts';
 import { CheckCircle, Truck } from 'lucide-react';
 import { ProductSellerPerformanceBarComponent } from './product-seller-performance-bar.component.tsx';
+import { BsPatchCheckFill } from 'react-icons/bs';
 
 export function ProductSellerComponent({ detail }: { detail: ProductDetail }): JSX.Element {
     const { seller } = detail;
     return (
         <>
-            {seller!.isOfficial && (
-                <div className="bg-black text-white px-2 py-1 text-sm rounded mb-2 inline-block">Tienda Oficial</div>
-            )}
             <h2 className="text-xl">Vendido por {seller!.name}</h2>
+            {seller?.isOfficial && (
+                <div className="flex items-center gap-x-2">
+                    <span className="text-app-button-primary">
+                        <BsPatchCheckFill />
+                    </span>
+                    <p>Tienda oficial de Mercado Libre</p>
+                </div>
+            )}
             <p className="text-xs text-gray-600 mb-1">
                 {seller!.totalProducts > 1
                     ? `+${seller!.totalProducts} Productos`
@@ -19,7 +25,7 @@ export function ProductSellerComponent({ detail }: { detail: ProductDetail }): J
 
             <div className="mt-5 w-full">
                 <ProductSellerPerformanceBarComponent
-                    onTimeDeliveryRating={seller!.customerServiceRating}
+                    onTimeDeliveryRating={seller!.onTimeDeliveryRating}
                     customerServiceRating={seller!.customerServiceRating}
                     salesPerformanceRating={seller!.salesPerformanceRating}
                 />

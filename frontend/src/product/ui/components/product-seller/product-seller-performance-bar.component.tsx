@@ -24,7 +24,6 @@ export function ProductSellerPerformanceBarComponent({
     const getColorClass = (index: number): string => {
         const levelMin = index;
         const levelMax = index + 1;
-
         const isCurrentLevel = average >= levelMin && (index === 4 ? average <= levelMax : average < levelMax);
         const isPastLevel = average > levelMax;
 

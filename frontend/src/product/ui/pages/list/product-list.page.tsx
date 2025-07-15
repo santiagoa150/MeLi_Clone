@@ -21,6 +21,17 @@ export function ProductListPage(): JSX.Element {
                         Caso: Producto 1
                     </button>
                 </NavLink>
+                <NavLink
+                    to={RoutesConstants.PRODUCT_DETAIL.replace(':id', '662aed8f-5493-41c5-bcc5-9862d99776e0')}
+                    className="w-60 h-11"
+                >
+                    <button
+                        className="rounded-md cursor-pointer w-60 h-11 bg-app-button-primary text-white font-semibold hover:bg-app-button-primary-hover
+                    transition delay-150 duration-200 ease-in-out"
+                    >
+                        Caso: Producto 2
+                    </button>
+                </NavLink>
                 <NavLink to={RoutesConstants.PRODUCT_DETAIL.replace(':id', 'adadadad')} className="w-60 h-11">
                     <button
                         className="rounded-md cursor-pointer w-60 h-11 bg-app-button-primary text-white font-semibold hover:bg-app-button-primary-hover
