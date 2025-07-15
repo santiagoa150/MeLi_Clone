@@ -1,0 +1,63 @@
+services:
+  ms-gateway:
+    container_name: ms-gateway
+    build:
+      context: ./backend
+      dockerfile: /apps/gateway/DockerFile
+    restart: always
+    environment:
+      - NODE_ENV=docker
+    ports:
+      - 6060:6060
+  ms-products:
+    container_name: ms-products
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+      args:
+        - APP=products
+    restart: always
+    ports:
+      - 6061:6061
+  ms-reviews:
+    container_name: ms-reviews
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+      args:
+        - APP=reviews
+    restart: always
+    ports:
+      - 6062:6062
+  ms-sellers:
+    container_name: ms-sellers
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+      args:
+        - APP=sellers
+    restart: always
+    ports:
+      - 6063:6063
+  ms-payments:
+    container_name: ms-payments
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+      args:
+        - APP=payments
+    restart: always
+    ports:
+      - 6064:6064
+  app:
+    container_name: app
+    build:
+      context: ./frontend
+      dockerfile: DockerFile
+    restart: always
+    ports:
+      - 6065:80
+
+networks:
+  app-network:
+    driver: bridge

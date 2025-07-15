@@ -26,6 +26,8 @@ import {
 import * as process from 'node:process';
 import { ServeStaticModule } from '@nestjs/serve-static';
 
+const environment: string = process.env.NODE_ENV || 'local';
+
 /**
  * This module is the entry point for the Gateway application.
  * It configures the application, imports necessary modules, and registers controllers and providers.
@@ -37,7 +39,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
         ConfigModule.forRoot({
             isGlobal: true,
             validationSchema: EnvGatewaySchema,
-            envFilePath: resolve(__dirname, '.env.gateway'),
+            envFilePath: resolve(__dirname, `.env.gateway.${environment}`),
         }),
         ServeStaticModule.forRoot({
             rootPath: join(process.cwd(), 'public'),
