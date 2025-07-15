@@ -66,6 +66,14 @@ export class Seller extends DomainRoot<SellerNormalized> {
         );
     }
 
+    get name(): StringValueObject {
+        return this._name;
+    }
+
+    get isOfficial(): BooleanValueObject {
+        return this._isOfficial;
+    }
+
     /**
      * Normalizes the seller data into a structured format.
      * @return The normalized seller data.

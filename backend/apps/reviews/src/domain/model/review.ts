@@ -28,6 +28,14 @@ export class Review extends DomainRoot<ReviewNormalized> {
         super();
     }
 
+    get productId(): IdValueObject {
+        return this._productId;
+    }
+
+    get createdAt(): DateValueObject {
+        return this._createdAt;
+    }
+
     /**
      * Creates a new Review instance.
      */
@@ -47,10 +55,6 @@ export class Review extends DomainRoot<ReviewNormalized> {
             DateValueObject.create(createdAt),
             comment ? StringValueObject.create(comment) : undefined,
         );
-    }
-
-    get createdAt(): DateValueObject {
-        return this._createdAt;
     }
 
     /**

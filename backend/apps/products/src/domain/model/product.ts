@@ -28,6 +28,8 @@ export class Product extends DomainRoot<ProductNormalized> {
      * @param _rating - The average rating of the product.
      * @param _reviewsCount - The number of reviews for the product.
      * @param _isBestSeller - Indicates if the product is a bestseller.
+     * @param _freeReturnDays - The number of days for free returns on the product.
+     * @param _factoryWarrantyMonths - The number of months the product has a factory warranty.
      * @param _attributes - The array of product attributes.
      * @param _sellerId - The unique identifier of the seller offering the product.
      * @param _paymentMethods - The array of payment methods accepted for the product.
@@ -105,6 +107,14 @@ export class Product extends DomainRoot<ProductNormalized> {
             ArrayValueObject.create<string>(paymentMethods),
             discountPercentage ? NumberValueObject.create(discountPercentage) : undefined,
         );
+    }
+
+    get id(): IdValueObject {
+        return this._id;
+    }
+
+    get title(): StringValueObject {
+        return this._title;
     }
 
     /**

@@ -33,6 +33,14 @@ export class PaymentMethod extends DomainRoot<PaymentMethodNormalized> {
         return new PaymentMethod(IdValueObject.create(id), type, brand);
     }
 
+    get id(): IdValueObject {
+        return this._id;
+    }
+
+    get brand(): PaymentMethodBrandConstants {
+        return this._brand;
+    }
+
     /**
      * Returns the payment method normalized representation.
      * @returns The normalized representation of the payment method.

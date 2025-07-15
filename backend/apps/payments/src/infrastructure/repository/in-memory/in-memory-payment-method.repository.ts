@@ -1,9 +1,9 @@
 import { ArrayValueObject } from '@shared/domain/value-object/array.value-object';
-import { PaymentMethod } from 'apps/payments/src/domain/model/payment-method';
 import { PaymentMethodRepository } from '../../../domain/repository/payment-method.repository';
 import { PaymentMethodNormalized } from '@shared/domain/model/payment/payment-method-normalized';
 import { PaymentMethodTypeConstants } from '../../../domain/model/payment-method-type.constants';
 import { PaymentMethodBrandConstants } from '../../../domain/model/payment-method-brand.constants';
+import { PaymentMethod } from '../../../domain/model/payment-method';
 
 /**
  * InMemoryPaymentMethodRepository class implements the PaymentMethodRepository interface.
