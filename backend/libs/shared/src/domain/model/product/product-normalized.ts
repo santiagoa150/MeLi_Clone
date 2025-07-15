@@ -11,6 +11,9 @@ export class ProductNormalized {
     @ApiProperty({ description: 'Title of the product' })
     title: string;
 
+    @ApiProperty({ description: 'The color of the product' })
+    color: string;
+
     @ApiProperty({ description: 'Description of the product' })
     description: string;
 
@@ -43,6 +46,12 @@ export class ProductNormalized {
 
     @ApiProperty({ description: 'Indicates if the product is a best seller' })
     isBestSeller: boolean;
+
+    @ApiProperty({ description: 'Number of days for free returns' })
+    freeReturnDays: number;
+
+    @ApiProperty({ description: 'Number of months for factory warranty' })
+    factoryWarrantyMonths: number;
 
     @ApiProperty({ description: 'Attributes of the product', type: [ProductAttributeNormalized] })
     attributes: ProductAttributeNormalized[];

@@ -4,13 +4,17 @@
     --color-app-primary: #ffe600;
     --color-app-button-primary: #3483fa;
     --color-app-button-primary-hover: #2968c8;
+    --color-app-button-secondary: rgba(65, 137, 230, .15);
     --color-app-text-secondary: #333;
+    --color-app-text-tertiary: rgba(0, 0, 0, .55);
+    --color-app-text-success: #00a650;
+    --color-app-background: #ededed;
 }
 
 body, #root {
     width: 100vw;
     min-height: 100vh;
-    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 #root {

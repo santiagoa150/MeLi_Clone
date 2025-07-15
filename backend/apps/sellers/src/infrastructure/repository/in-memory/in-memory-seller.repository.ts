@@ -15,7 +15,7 @@ export class InMemorySellerRepository implements SellerRepository {
             salesPerformanceRating: 4,
             customerServiceRating: 5,
             onTimeDeliveryRating: 5,
-            imageId: '83db39c4-dfbb-4c3b-a9cf-313a4b9e9267',
+            imageId: '83db39c4-dfbb-4c3b-a9cf-313a4b9e9267.png',
             isOfficial: false,
             totalProducts: 100,
             totalSales: 1000,

@@ -16,6 +16,7 @@ export class Product extends DomainRoot<ProductNormalized> {
     /**
      * @param _id - The unique identifier of the product.
      * @param _title - The title of the product.
+     * @param _color - The color of the product.
      * @param _description - The description of the product.
      * @param _price - The price of the product.
      * @param _currency - The currency of the product price.
@@ -35,6 +36,7 @@ export class Product extends DomainRoot<ProductNormalized> {
     constructor(
         private readonly _id: IdValueObject,
         private readonly _title: StringValueObject,
+        private readonly _color: StringValueObject,
         private readonly _description: StringValueObject,
         private readonly _price: NumberValueObject,
         private readonly _currency: CurrencyValueObject,
@@ -46,6 +48,8 @@ export class Product extends DomainRoot<ProductNormalized> {
         private readonly _rating: NumberValueObject,
         private readonly _reviewsCount: NumberValueObject,
         private readonly _isBestSeller: BooleanValueObject,
+        private readonly _freeReturnDays: NumberValueObject,
+        private readonly _factoryWarrantyMonths: NumberValueObject,
         private readonly _attributes: ProductAttribute[],
         private readonly _sellerId: IdValueObject,
         private readonly _paymentMethods: ArrayValueObject<string>,
@@ -60,6 +64,7 @@ export class Product extends DomainRoot<ProductNormalized> {
     public static create(
         id: string,
         title: string,
+        color: string,
         description: string,
         price: number,
         currency: string,
@@ -71,6 +76,8 @@ export class Product extends DomainRoot<ProductNormalized> {
         rating: number,
         reviewsCount: number,
         isBestSeller: boolean,
+        freeReturnDays: number,
+        factoryWarrantyMonths: number,
         attributes: ProductAttributeNormalized[],
         sellerId: string,
         paymentMethods: string[],
@@ -79,6 +86,7 @@ export class Product extends DomainRoot<ProductNormalized> {
         return new Product(
             IdValueObject.create(id),
             StringValueObject.create(title),
+            StringValueObject.create(color),
             StringValueObject.create(description),
             NumberValueObject.create(price),
             CurrencyValueObject.create(currency),
@@ -90,7 +98,9 @@ export class Product extends DomainRoot<ProductNormalized> {
             NumberValueObject.create(rating),
             NumberValueObject.create(reviewsCount),
             BooleanValueObject.create(isBestSeller),
-            attributes.map((attr) => ProductAttribute.create(attr.name, attr.value)),
+            NumberValueObject.create(freeReturnDays),
+            NumberValueObject.create(factoryWarrantyMonths),
+            attributes.map((attr) => ProductAttribute.create(attr.name, attr.value, attr.category, attr.highlighted)),
             IdValueObject.create(sellerId),
             ArrayValueObject.create<string>(paymentMethods),
             discountPercentage ? NumberValueObject.create(discountPercentage) : undefined,
@@ -105,6 +115,7 @@ export class Product extends DomainRoot<ProductNormalized> {
         return {
             id: this._id.toString(),
             title: this._title.toString(),
+            color: this._color.toString(),
             description: this._description.toString(),
             price: this._price.toNumber(),
             currency: this._currency.toString(),
@@ -116,6 +127,8 @@ export class Product extends DomainRoot<ProductNormalized> {
             rating: this._rating.toNumber(),
             reviewsCount: this._reviewsCount.toNumber(),
             isBestSeller: this._isBestSeller.toBoolean(),
+            freeReturnDays: this._freeReturnDays.toNumber(),
+            factoryWarrantyMonths: this._factoryWarrantyMonths.toNumber(),
             attributes: this._attributes.map((attr) => attr.normalize()),
             sellerId: this._sellerId.toString(),
             paymentMethods: this._paymentMethods.toArray(),

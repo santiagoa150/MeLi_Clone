@@ -9,4 +9,10 @@ export class ProductAttributeNormalized {
 
     @ApiProperty({ description: 'The value of the product attribute.' })
     value: string;
+
+    @ApiProperty({ description: 'The category of the product attribute.' })
+    category: string;
+
+    @ApiProperty({ description: 'The type of the product attribute.' })
+    highlighted?: boolean;
 }

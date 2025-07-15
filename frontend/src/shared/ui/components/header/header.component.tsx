@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import LogoSmall from '../assets/logo__small@2x.png';
+import LogoSmall from '../../assets/logo__small@2x.png';
 
 /**
  * HeaderComponent is a functional component that renders the header of the application.

@@ -5,6 +5,7 @@ export type ProductDetail = {
     product: {
         id: string;
         title: string;
+        color: string;
         description: string;
         price: number;
         currency: string;
@@ -16,9 +17,13 @@ export type ProductDetail = {
         rating: number;
         reviewsCount: number;
         isBestSeller: boolean;
+        freeReturnDays: number;
+        factoryWarrantyMonths: number;
         attributes: {
             name: string;
             value: string;
+            category: string;
+            highlighted: boolean;
         }[];
         sellerId: string;
         paymentMethods: string[];

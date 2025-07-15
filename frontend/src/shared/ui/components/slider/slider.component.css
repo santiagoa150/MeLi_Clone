@@ -1,0 +1,9 @@
+.dot_button_container .react-multi-carousel-dot--active button {
+    background-color: var(--color-app-button-primary);
+    border: 0 !important;
+}
+
+.dot_button_container button {
+    background-color: lightgray;
+    border: 0 !important;
+}

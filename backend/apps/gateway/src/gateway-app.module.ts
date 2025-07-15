@@ -24,6 +24,7 @@ import {
     protobufPackage as paymentsProtobufPackage,
 } from '@shared/infrastructure/interfaces/grpc/payment/payments';
 import * as process from 'node:process';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 /**
  * This module is the entry point for the Gateway application.
@@ -37,6 +38,10 @@ import * as process from 'node:process';
             isGlobal: true,
             validationSchema: EnvGatewaySchema,
             envFilePath: resolve(__dirname, '.env.gateway'),
+        }),
+        ServeStaticModule.forRoot({
+            rootPath: join(process.cwd(), 'public'),
+            serveRoot: process.env.APP_STATIC_PREFIX,
         }),
         ClientsModule.register([
             {

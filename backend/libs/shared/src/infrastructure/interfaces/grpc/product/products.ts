@@ -17,6 +17,7 @@ export interface GetProductByIdRequest {
 export interface Product {
   id: string;
   title: string;
+  color: string;
   description: string;
   price: number;
   currency: string;
@@ -28,6 +29,8 @@ export interface Product {
   rating: number;
   reviewsCount: number;
   isBestSeller: boolean;
+  freeReturnDays: number;
+  factoryWarrantyMonths: number;
   attributes: ProductAttributeNormalized[];
   sellerId: string;
   paymentMethods: string[];
@@ -37,6 +40,8 @@ export interface Product {
 export interface ProductAttributeNormalized {
   name: string;
   value: string;
+  category: string;
+  highlighted?: boolean | undefined;
 }
 
 export const PRODUCTS_GRPC_PACKAGE_PACKAGE_NAME = "PRODUCTS_GRPC_PACKAGE";

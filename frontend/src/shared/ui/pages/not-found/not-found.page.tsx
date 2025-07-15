@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { HeaderComponent } from '../../components/header.component.tsx';
+import { HeaderComponent } from '../../components/header/header.component.tsx';
 import NotFoundIconSvg from '../../assets/not-found-icon.svg.tsx';
 import { NavLink } from 'react-router-dom';
 import { RoutesConstants } from '../../../../routes.tsx';
