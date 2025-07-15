@@ -13,15 +13,14 @@ export class InMemoryProductRepository implements ProductRepository {
             title: 'Samsung Galaxy A55 5G Dual SIM 256 GB azul oscuro 8 GB RAM',
             color: 'Amarillo',
             description:
-                'SAMSUNG GALAXY A55 5G 256GB ( SIM FISICA + ESIM )\n' +
-                '\n' +
-                'Capacidad y eficiencia\n' +
-                'Con su potente procesador y memoria RAM de 8 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.\n' +
-                '\n' +
-                'Capacidad de almacenamiento ilimitada\n' +
-                'Olvidate de borrar. Con su memoria interna de 256 GB podrás descargar todos los archivos y aplicaciones que necesites, guardar fotos y almacenar tus películas, series y videos favoritos para reproducirlos cuando quieras.\n' +
-                '\n' +
-                'Garantía de fábrica: 12 meses',
+                '<p>SAMSUNG GALAXY A55 5G 256GB (SIM FÍSICA + ESIM)</p><br/>' +
+                '<p>Capacidad y eficiencia</p><br />' +
+                'Con su potente procesador y memoria RAM de 8 GB, tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.<br />' +
+                '<br />' +
+                '<p>Capacidad de almacenamiento ilimitada</p><br />' +
+                'Olvídate de borrar. Con su memoria interna de 256 GB podrás descargar todos los archivos y aplicaciones que necesites, guardar fotos y almacenar tus películas, series y videos favoritos para reproducirlos cuando quieras.<br />' +
+                '<br />' +
+                '<p>Garantía de fábrica: 12 meses</p>',
             price: 1549894,
             currency: 'COP',
             stock: 50,

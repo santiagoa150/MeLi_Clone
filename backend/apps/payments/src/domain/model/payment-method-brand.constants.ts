@@ -6,7 +6,6 @@ export enum PaymentMethodBrandConstants {
     MASTERCARD = 'MASTERCARD',
     AMERICAN_EXPRESS = 'AMERICAN_EXPRESS',
     OCA = 'OCA',
-    CODENSA = 'CODENSA',
     EFECTY = 'EFECTY',
     ABITAB = 'ABITAB',
     REDPAGOS = 'REDPAGOS',

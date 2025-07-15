@@ -21,8 +21,6 @@ export function MakeGetRequest<T>(
             return res.data.data;
         })
         .then((data) => setData(data))
-        .catch((err) => {
-            setError(err.response.data.message);
-        })
+        .catch((err) => setError(err.response.data.message))
         .finally(() => setLoading(false));
 }

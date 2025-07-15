@@ -53,7 +53,7 @@ export default function SliderComponent({ children }: { children: ReactNode }): 
             rtl={false}
             shouldResetAutoplay
             showDots
-            removeArrowOnDeviceType={['mobile']}
+            removeArrowOnDeviceType={['mobile', 'tablet', 'desktop']}
             sliderClass=""
             slidesToSlide={1}
             swipeable
