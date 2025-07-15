@@ -3,7 +3,7 @@ services:
     container_name: ms-gateway
     build:
       context: ./backend
-      dockerfile: /apps/gateway/DockerFile
+      dockerfile: ./apps/gateway/DockerFile
     restart: always
     environment:
       - NODE_ENV=docker
